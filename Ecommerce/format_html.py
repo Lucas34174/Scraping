@@ -25,13 +25,13 @@ class PrettyHTMLParser(HTMLParser):
         if data.strip():
             self.output.append(f"{'  ' * self.indent_level}{data.strip()}")
 
-with open('amazon.html', 'r', encoding='utf-8') as f:
+with open('web.html', 'r', encoding='utf-8') as f:
     content = f.read()
 
 parser = PrettyHTMLParser()
 parser.feed(content)
 
-with open('amazon.html', 'w', encoding='utf-8') as f:
+with open('web.html', 'w', encoding='utf-8') as f:
     f.write('\n'.join(parser.output))
 
-print('✓ Fichier amazon.html reformatté avec succès!')
+print('✓ Fichier web.html reformatté avec succès!')
