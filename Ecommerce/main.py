@@ -4,7 +4,7 @@ import requests as rq
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 
-load_dotenv()
+load_dotenv("../.env")
 
 URL="/ecommerce/"
 
@@ -28,8 +28,4 @@ for item in items:
 
 data = pd.DataFrame(article)
 print(data)
-
-with open("data.csv","w",encoding="utf-8") as f:
-    f.write(data.to_csv(index=False))
-
-print("Statut code:", response.status_code)
+data.to_csv("data.csv", index=False, encoding="utf-8", header=["Product","Price"])
